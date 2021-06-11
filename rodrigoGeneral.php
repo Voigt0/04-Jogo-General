@@ -45,26 +45,29 @@
 ?>
 <html>
 <head>
-    <meta charset='utf-8'>
+<meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title><?php echo "$titulo"?></title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="css/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <script src='js/main.js'></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </head>
-<body class="bg-light" style="margin: 0% 15%;">
+<body class="bg-light" style="">
 <nav class="navbar sticky-top navbar-dark bg-primary">
 <a class="navbar-brand" href="rodrigoGeneral.php">
 <h2 class="text-center">RODRIGO - JOGO GENERAL</h2>
 </a>
 </nav>
+<div style="float:left; width: 23%; height: <?php if(isset($_POST["nomeJogador"])){echo "4500px;";}else{echo "800px;";} ?>x; background-image: url(img/saemless.png);"></div>
+<div style="float: left;">
+<header style="background-image: url(img/bluedices.jpg); height: 200px; background-position: center; background-repeat: repeat-x; background-size: cover; position: relative;"></header>
 <br><br>
 <form class="" action="" method="post">
-        <legend>INFORME:</legend>
-    <div class="col-3">
-        <label class="form-label" for="primeiroCaracter">INFORME O NOME DO JOGADOR:</label>
+        <legend class="h2">INFORME:</legend>
+    <div class="col-5">
+        <label class="form-label display-5" for="primeiroCaracter">INFORME O NOME DO JOGADOR:</label>
         <input  class="form-control" type="text" name="nomeJogador" id="nomeJogador" value="<?php if(isset($_POST['nomeJogador'])) echo ''. $nomeJogador .'';?>">
     </div>
     <br><br>
@@ -78,64 +81,64 @@ if(isset($_POST['nomeJogador'])){
     for($a=0; $a<=5; $a++){
         $numeroDado = $a+1;
         $vetorJ[$a] = rand(1,6);
-        echo "$nomeJogador Dado $numeroDado:";
+        echo '<h1 class="display-6">'. $nomeJogador .' Dado '. $numeroDado .':</h1>';
         switch ($vetorJ[$a]){
             case 1:
-                echo "<img src=img/dice1.png><br><br>";
+                echo "<img src=img/dice1.png><br><br><br>";
                 $diceNumJ[0]++;
                 break;
             case 2:
-                echo "<img src=img/dice2.png><br><br>";
+                echo "<img src=img/dice2.png><br><br><br>";
                 $diceNumJ[1]++;
                 break;
             case 3:
-                echo "<img src=img/dice3.png><br><br>";
+                echo "<img src=img/dice3.png><br><br><br>";
                 $diceNumJ[2]++;
                 break;
             case 4:
-                echo "<img src=img/dice4.png><br><br>";
+                echo "<img src=img/dice4.png><br><br><br>";
                 $diceNumJ[3]++;
                 break;
             case 5:
-                echo "<img src=img/dice5.png><br><br>";
+                echo "<img src=img/dice5.png><br><br><br>";
                 $diceNumJ[4]++;
                 break;
             case 6:
-                echo "<img src=img/dice6.png><br><br>";
+                echo "<img src=img/dice6.png><br><br><br>";
                 $diceNumJ[5]++;
                 break;
         }
     }
 
-    echo "<br><br>";
+    echo "<br><br><br>";
 
     for($b=0; $b<=5; $b++){
         $numeroDado = $b+1;
         $vetorC[$b] = rand(1,6);
-        echo "Computador Dado $numeroDado:";
+        echo '<h1 class="display-6">Computador Dado '. $numeroDado.':</h1>';
         switch ($vetorC[$b]){
             case 1:
-                echo "<img src=img/dice1.png><br><br>";
+                echo "<img src=img/dice1.png><br><br><br>";
                 $diceNumC[0]++;
                 break;
             case 2:
-                echo "<img src=img/dice2.png><br><br>";
+                echo "<img src=img/dice2.png><br><br><br>";
                 $diceNumC[1]++;
                 break;
             case 3:
-                echo "<img src=img/dice3.png><br><br>";
+                echo "<img src=img/dice3.png><br><br><br>";
                 $diceNumC[2]++;
                 break;
             case 4:
-                echo "<img src=img/dice4.png><br><br>";
+                echo "<img src=img/dice4.png><br><br><br>";
                 $diceNumC[3]++;
                 break;
             case 5:
-                echo "<img src=img/dice5.png><br><br>";
+                echo "<img src=img/dice5.png><br><br><br>";
                 $diceNumC[4]++;
                 break;
             case 6:
-                echo "<img src=img/dice6.png><br><br>";
+                echo "<img src=img/dice6.png><br><br><br>";
                 $diceNumC[5]++;
                 break;
         }
@@ -248,7 +251,7 @@ if(isset($_POST['nomeJogador'])){
     $Ctotal = $Cjogada1+$Cjogada2+$Cjogada3+$Cjogada4+$Cjogada5+$Cjogada6+$Ctrinca+$Cquadra+$CfullHouse+$CsequenciaA+$CsequenciaB+$Cgeneral+$Caleatorio;
 
     echo'
-    <table>
+    <table class=" table table-dark table-striped">
     <tr class="tabela">
       <th class="tabela"></th>
       <th class="tabela">'. $nomeJogador .'</th>
@@ -336,5 +339,7 @@ if($Jtotal>$Ctotal){
 }
 }
 ?>
+</div>
+<div style="float:left; width: 23%; height: <?php if(isset($_POST["nomeJogador"])){echo "4500px;";}else{echo "800px;";} ?>; background-image: url(img/saemless.png);"></div>
 </body>
 </html>
